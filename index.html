@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#174d2b">
+  <meta name="description" content="Healthy Morning Bowl – fresh, homestyle, 100% pure vegetarian breakfast in Wagholi, Pune.">
+  <title>Healthy Morning Bowl | Fresh Food. Healthy Start!</title>
+  <link rel="icon" type="image/png" href="assets/healthy-morning-bowl-logo.png">
+  <style>
+    :root {
+      --green: #174d2b;
+      --green2: #287a3d;
+      --orange: #f39a18;
+      --cream: #fffaf0;
+      --ink: #2e2a22;
+      --muted: #6c6a60;
+      --white: #ffffff;
+      --shadow: 0 14px 35px rgba(23,77,43,.10);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--ink); background: #fff;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: auto; }
+    .topbar { background: var(--green); color: white; text-align: center; padding: 8px 12px; font-size: .88rem; }
+    header { background: rgba(255,250,240,.96); position: sticky; top: 0; z-index: 10; border-bottom: 1px solid #eee7d8; backdrop-filter: blur(10px); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 78px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 850; color: var(--green); line-height: 1.05; }
+    .brand img { width: 54px; height: 54px; object-fit: cover; object-position: center; border-radius: 50%; border: 2px solid #e4eadc; background: #fffaf0; }
+    .brand small { display: block; color: #79502b; font-size: .68rem; font-weight: 700; letter-spacing: .08em; margin-top: 5px; }
+    .navlinks { display: flex; gap: 24px; align-items: center; font-size: .94rem; font-weight: 650; }
+    .navlinks a:hover { color: var(--green2); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 999px; padding: 13px 21px; font-weight: 750; cursor: pointer; transition: .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-green { color: white; background: var(--green); box-shadow: 0 8px 20px rgba(23,77,43,.18); }
+    .btn-orange { color: #35230b; background: var(--orange); }
+    .btn-outline { border: 1px solid #cbd8c9; color: var(--green); background: white; }
+    .hero { background: radial-gradient(circle at 82% 15%, #fff0c7 0, transparent 30%), linear-gradient(120deg, #fffaf0 0%, #f0f7e9 100%); padding: 76px 0 70px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 45px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; background: #e7f1df; color: var(--green); padding: 7px 13px; border-radius: 999px; font-weight: 800; font-size: .82rem; letter-spacing: .04em; }
+    h1 { color: var(--green); font-size: clamp(2.5rem, 5vw, 4.6rem); line-height: 1.04; letter-spacing: -.045em; margin: 20px 0 17px; }
+    h1 span { color: #9a4e19; }
+    .hero p { color: #5f6256; font-size: 1.13rem; max-width: 570px; margin-bottom: 25px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-logo { width: min(100%, 480px); aspect-ratio: 1 / 1; object-fit: cover; display: block; margin: auto; border-radius: 28px; box-shadow: 0 20px 40px rgba(43,70,34,.16); }
+    .trust-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 25px; }
+    .trust-pill { background: white; border: 1px solid #e4eadc; color: var(--green); border-radius: 999px; padding: 8px 12px; font-size: .82rem; font-weight: 700; }
+    section { padding: 76px 0; }
+    .section-head { text-align: center; max-width: 700px; margin: 0 auto 36px; }
+    .section-head h2 { color: var(--green); font-size: clamp(2rem, 3vw, 2.8rem); line-height: 1.15; margin: 0 0 12px; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .menu-section { background: #fff; }
+    .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+    .menu-card { border: 1px solid #eee9dd; border-radius: 17px; padding: 20px; background: white; box-shadow: 0 7px 22px rgba(36,48,26,.045); display: flex; align-items: center; gap: 14px; }
+    .food-photo { width: 76px; height: 76px; border-radius: 14px; object-fit: cover; flex: 0 0 auto; display: block; background: #f5f4e8; }
+    .menu-card h3 { margin: 0; font-size: 1rem; line-height: 1.25; }
+    .menu-card p { color: var(--muted); margin: 4px 0 0; font-size: .9rem; }
+    .price { margin-left: auto; color: var(--green); font-weight: 850; white-space: nowrap; }
+    .about { background: var(--cream); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; align-items: center; }
+    .about-panel { background: white; border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow); }
+    .about-panel h2 { color: var(--green); font-size: 2.1rem; line-height: 1.15; margin: 0 0 14px; }
+    .feature-list { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-top: 22px; }
+    .feature { background: #f1f6eb; color: var(--green); padding: 14px; border-radius: 14px; font-weight: 750; }
+    .hours-card { background: var(--green); color: white; padding: 30px; border-radius: var(--radius); }
+    .hours-card h3 { margin: 0 0 10px; font-size: 1.5rem; }
+    .hours-card .time { font-size: 1.8rem; font-weight: 850; color: #ffe1a2; }
+    .order-section { background: #f5f8f1; }
+    .order-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .order-card { background: white; border: 1px solid #e6ebdf; border-radius: 18px; padding: 25px; text-align: center; }
+    .order-card .symbol { font-size: 2.1rem; }
+    .order-card h3 { color: var(--green); margin: 8px 0 5px; }
+    .order-card p { color: var(--muted); font-size: .92rem; min-height: 46px; }
+    .coming { display: inline-block; background: #fff1d7; color: #89520c; padding: 7px 12px; border-radius: 999px; font-size: .78rem; font-weight: 850; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .contact-box { border: 1px solid #e8eadf; border-radius: 18px; padding: 25px; }
+    .contact-box h3 { color: var(--green); margin-top: 0; }
+    footer { background: #123d23; color: white; padding: 35px 0; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    footer p { color: #d9e7d6; margin: 5px 0; font-size: .9rem; }
+    .socials { display: flex; gap: 15px; flex-wrap: wrap; font-weight: 700; }
+    .note { color: #777; font-size: .8rem; margin-top: 16px; }
+    .mobile-menu { display: none; }
+    @media (max-width: 820px) {
+      .hero-grid, .about-grid { grid-template-columns: 1fr; }
+      .hero { padding: 55px 0; text-align: center; }
+      .hero p { margin-left: auto; margin-right: auto; }
+      .hero-actions, .trust-row { justify-content: center; }
+      .hero-logo { width: min(72%, 310px); }
+      .menu-grid { grid-template-columns: repeat(2,1fr); }
+      .navlinks { gap: 13px; font-size: .85rem; }
+    }
+    @media (max-width: 580px) {
+      .container { width: min(100% - 28px, 1120px); }
+      .nav { min-height: 68px; }
+      .brand img { width: 45px; height: 45px; }
+      .navlinks { display: none; }
+      .mobile-menu { display: inline-flex; }
+      section { padding: 58px 0; }
+      .menu-grid, .order-grid, .contact-grid { grid-template-columns: 1fr; }
+      .menu-card { padding: 15px; }
+      .about-panel, .hours-card { padding: 24px; }
+      .feature-list { grid-template-columns: 1fr 1fr; }
+      .price { font-size: .94rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">🌿 100% Pure Vegetarian • Fresh • Homestyle • Wagholi, Pune</div>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Healthy Morning Bowl home">
+        <img src="./assets/healthy-morning-bowl-logo.png" alt="Healthy Morning Bowl logo">
+        <span>Healthy Morning Bowl<small>FRESH FOOD. HEALTHY START!</small></span>
+      </a>
+      <nav class="navlinks" aria-label="Main navigation">
+        <a href="#home">Home</a><a href="#menu">Our Menu</a><a href="#about">About</a><a href="#order">Order</a><a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-green mobile-menu" href="#order">Order</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">☀️ YOUR MORNING, MADE DELICIOUS</span>
+          <h1>Fresh Food.<br><span>Healthy Start!</span></h1>
+          <p>Welcome to Healthy Morning Bowl – your neighbourhood destination for fresh, delicious and homestyle 100% pure vegetarian breakfast in Wagholi, Pune.</p>
+          <div class="hero-actions">
+            <a class="btn btn-green" href="#menu">Explore Our Menu</a>
+            <a class="btn btn-orange" href="#order">Order / Contact Us</a>
+          </div>
+          <div class="trust-row">
+            <span class="trust-pill">🌿 100% Pure Vegetarian</span>
+            <span class="trust-pill">🏡 Homestyle Taste</span>
+            <span class="trust-pill">🍽️ Breakfast • Tea • Coffee</span>
+          </div>
+        </div>
+        <div><img class="hero-logo" src="./assets/breakfast-spread.jpg" alt="A spread of fresh Indian vegetarian breakfast dishes"></div>
+      </div>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">MADE FOR YOUR MORNING</span>
+          <h2>Our Breakfast Menu</h2>
+          <p>Fresh, homestyle favourites to make your morning a little more delicious.</p>
+        </div>
+        <div class="menu-grid">
+          <article class="menu-card"><img class="food-photo" src="./assets/poha.jpg" alt="Kanda poha"><div><h3>Kanda Poha</h3><p>Classic breakfast favourite</p></div><span class="price">₹40</span></article>
+          <article class="menu-card"><img class="food-photo" src="./assets/upma.jpg" alt="Vegetable upma"><div><h3>Vegetable Upma</h3><p>A comforting savoury bowl</p></div><span class="price">₹45</span></article>
+          <article class="menu-card"><img class="food-photo" src="./assets/shira.jpg" alt="Dry fruit shira with gavran tup"><div><h3>Dry Fruit Shira with Gavran Tup</h3><p>Rich homestyle sweet</p></div><span class="price">₹65</span></article>
+          <article class="menu-card"><img class="food-photo" src="./assets/sabudana-khichadi.jpg" alt="Sabudana khichadi"><div><h3>Sabudana Khichadi</h3><p>A traditional favourite</p></div><span class="price">₹55</span></article>
+          <article class="menu-card"><img class="food-photo" src="./assets/milk-tea.jpg" alt="Milk tea"><div><h3>Milk Tea</h3><p>Freshly made cup</p></div><span class="price">₹15</span></article>
+          <article class="menu-card"><img class="food-photo" src="./assets/black-tea.jpg" alt="Black tea"><div><h3>Black Tea</h3><p>Simple and refreshing</p></div><span class="price">₹15</span></article>
+          <article class="menu-card"><img class="food-photo" src="./assets/milk-coffee.jpg" alt="Milk coffee"><div><h3>Milk Coffee</h3><p>Your morning coffee</p></div><span class="price">₹25</span></article>
+          <article class="menu-card"><img class="food-photo" src="./assets/black-coffee.jpg" alt="Black coffee"><div><h3>Black Coffee</h3><p>A classic coffee</p></div><span class="price">₹20</span></article>
+          <article class="menu-card"><img class="food-photo" src="./assets/chapati.jpg" alt="Chapati"><div><h3>Chapati (2 pcs)</h3><p>Available every day</p></div><span class="price">₹25</span></article>
+          <article class="menu-card"><img class="food-photo" src="./assets/bajra-bhakri.jpg" alt="Bajari bhakari"><div><h3>Bajari Bhakari</h3><p>Available every day</p></div><span class="price">₹30</span></article>
+          <article class="menu-card"><img class="food-photo" src="./assets/jowar-bhakri.jpg" alt="Jwari bhakari"><div><h3>Jwari Bhakari</h3><p>Available every day</p></div><span class="price">₹30</span></article>
+        </div>
+        <p class="note">Menu and prices are subject to change. Please confirm availability when ordering.</p>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-panel">
+          <span class="eyebrow">A LITTLE ABOUT US</span>
+          <h2>A healthy, homestyle start to your day.</h2>
+          <p>At Healthy Morning Bowl, we believe breakfast should feel fresh, comforting and delicious. We are building a neighbourhood breakfast kitchen serving 100% pure vegetarian food in Wagholi.</p>
+          <div class="feature-list">
+            <div class="feature">🌿 100% Pure Vegetarian</div>
+            <div class="feature">🏡 Homestyle Taste</div>
+            <div class="feature">🍽️ Breakfast Favourites</div>
+            <div class="feature">☕ Tea & Coffee</div>
+          </div>
+        </div>
+        <div class="hours-card">
+          <h3>Visit / Contact Us</h3>
+          <p>📍 Awhalwadi Road, Wagholi, Pune, Maharashtra</p>
+          <p>⏰ Morning operating hours</p>
+          <div class="time">5:30 AM – 8:30 AM</div>
+          <p>For orders and availability, contact us on WhatsApp.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="order-section" id="order">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">YOUR BREAKFAST IS A MESSAGE AWAY</span>
+          <h2>How Would You Like to Order?</h2>
+          <p>Contact us directly or find us on food delivery platforms when our listings are live.</p>
+        </div>
+        <div class="order-grid">
+          <div class="order-card">
+            <div class="symbol">💬</div><h3>WhatsApp Orders</h3>
+            <p>Message us to enquire about today's menu and place a direct order.</p>
+            <a class="btn btn-green" id="whatsappButton" href="#" target="_blank" rel="noopener">Order on WhatsApp</a>
+          </div>
+          <div class="order-card">
+            <div class="symbol">🍽️</div><h3>Zomato</h3>
+            <p>Our Zomato restaurant listing will be shared here after approval.</p>
+            <span class="coming">COMING SOON</span>
+          </div>
+          <div class="order-card">
+            <div class="symbol">🛵</div><h3>Swiggy</h3>
+            <p>Our Swiggy restaurant listing will be shared here after approval.</p>
+            <span class="coming">COMING SOON</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">WE'D LOVE TO HEAR FROM YOU</span>
+          <h2>Contact Healthy Morning Bowl</h2>
+          <p>For menu enquiries, order requests and updates, get in touch.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-box">
+            <h3>📍 Our Location</h3>
+            <p>Awhalwadi Road, Wagholi, Pune, Maharashtra, India</p>
+            <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=Awhalwadi+Road+Wagholi+Pune" target="_blank" rel="noopener">View area on Google Maps</a>
+          </div>
+          <div class="contact-box">
+            <h3>📲 Connect With Us</h3>
+            <p>WhatsApp is the quickest way to contact us for breakfast enquiries.</p>
+            <a class="btn btn-green" id="contactWhatsapp" href="#" target="_blank" rel="noopener">Chat on WhatsApp</a>
+            <p class="note">Add your business WhatsApp number in the website settings before publishing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <strong>Healthy Morning Bowl</strong>
+        <p>Fresh Food. Healthy Start!</p>
+        <p>100% Pure Vegetarian • Awhalwadi Road, Wagholi, Pune</p>
+      </div>
+      <div class="socials">
+        <a href="#" aria-label="Facebook page – add your link">Facebook</a>
+        <a href="#" aria-label="Instagram page – add your link">Instagram</a>
+      </div>
+      <p>© <span id="year"></span> Healthy Morning Bowl. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    /*
+      IMPORTANT: Before publishing, replace the placeholder below with your
+      10-digit WhatsApp number, including India's country code 91.
+      Example format: 919876543210 (do not use +, spaces or hyphens).
+    */
+    const BUSINESS_WHATSAPP_NUMBER = "918485867793";
+
+    const message = encodeURIComponent(
+      "Hello Healthy Morning Bowl! I would like to know today's breakfast menu and place an order."
+    );
+    const validNumber = /^91\d{10}$/.test(BUSINESS_WHATSAPP_NUMBER);
+    const waLink = validNumber
+      ? `https://wa.me/${BUSINESS_WHATSAPP_NUMBER}?text=${message}`
+      : "https://wa.me/";
+
+    document.getElementById("whatsappButton").href = waLink;
+    document.getElementById("contactWhatsapp").href = waLink;
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
